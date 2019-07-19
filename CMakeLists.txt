@@ -103,7 +103,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
+  INCLUDE_DIRS
 #  LIBRARIES push_button_utils
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
@@ -116,18 +116,8 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
- include
   ${catkin_INCLUDE_DIRS}
 )
-
-## Declare a C++ library
-add_library(gpio_lib src/jetsonGPIO.cpp)
-add_dependencies(gpio_lib push_button_utils_gencpp)
-target_link_libraries(gpio_lib ${catkin_LIBRARIES})
-
-add_executable(bumper_button src/bumper_button.cpp)
-add_dependencies(bumper_button push_button_utils_gencpp)
-target_link_libraries(bumper_button gpio_lib ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
