@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import RPi.GPIO as GPIO
+import Jetson.GPIO as GPIO
 import rospy
 from std_msgs.msg import Bool
 
